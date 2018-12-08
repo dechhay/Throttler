@@ -51,6 +51,27 @@ class ThrottlerTests: XCTestCase {
     
     func testThrottleTime() {
         let delay: TimeInterval = 2.0
+        let dispatchQueue = DispatchQueue.main
+        let expectation = XCTestExpectation(description: "\(#function)")
+        let startTime = Date()
+        throttler = Throttler(delay: delay, dispatchQueue: dispatchQueue) {
+            let timeElapsed = Date().timeIntervalSince(startTime)
+            let expectedTimeElapsed = delay
+            let percentDiff = abs(expectedTimeElapsed - timeElapsed) / expectedTimeElapsed
+            let tolerance: TimeInterval = 0.10
+            if percentDiff < tolerance  {
+                expectation.fulfill()
+            }
+        }
+        throttler?.throttle()
+
+        let padding: TimeInterval =  4.0
+        let timeout: TimeInterval = delay + padding
+        wait(for: [expectation], timeout: timeout)
+    }
+    
+    func testThrottleInterrupt() {
+        let delay: TimeInterval = 2.0
         let secondThrottleWait = delay * 0.90
         let dispatchQueue = DispatchQueue.main
         let expectation = XCTestExpectation(description: "\(#function)")
@@ -71,7 +92,7 @@ class ThrottlerTests: XCTestCase {
         dispatchQueue.asyncAfter(deadline: deadline) { [weak self] in
             self?.throttler?.throttle()
         }
-
+        
         let padding: TimeInterval =  4.0
         let timeout: TimeInterval = secondThrottleWait + delay + padding
         wait(for: [expectation], timeout: timeout)
