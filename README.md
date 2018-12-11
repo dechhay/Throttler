@@ -12,7 +12,8 @@ This library was intended as a small component with simplicity in mind.  You do 
 
 ## How to use?
 
-Lets say you want to regulate firing off a network request to search using a UISearchBar.  You should not send a search request for every key pressed.
+Lets say you want to automatically send a search request as type into a UISearchBar.  But you don't want to send a request for every key press.  Because you are a responisble developer, you want to regulate the search.  This can be done easily using the Throttler as shown below.
+
 ```swift
 func commonInit() {
     let delay: TimeInterval = 0.5
