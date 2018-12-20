@@ -2,17 +2,15 @@
 
 Throttler is a component object you can use for regulating the rate of performing a process.
 
-## Why is this useful?
-
-Because you can achieve throttling behavior with just a small component.  Processes can easily be defined using a closure.  You can also customize the Throttler's delay time, and even change its dispatch queue.
+Processes can easily be defined using a closure.  You can also customize the delay time, and even change its dispatch queue.
 
 ## Why not just use RxSwift?
 
-This library was intended as a small component with simplicity in mind.  You do not need to learn complicated syntaxes.  Functions were designed to have few inputs, making your code simpler.
+This library was intended as a small component with simplicity in mind.  You do not need to learn complicated syntaxes.  Functions were designed to have few inputs, making your code simpler and cleaner.
 
-## How to use?
+## How do I use it?
 
-Lets say you want to automatically send a search request as type into a UISearchBar.  But you don't want to send a request for every key press.  Because you are a responisble developer, you want to regulate the search.  This can be done easily using the Throttler as shown below.
+Lets say you want to automatically send a search request as you type into a UISearchBar, but don't want to send a request for every key pressed. Because you are a responsible developer, you want to *regulate* the search. This can be done easily using the Throttler as shown below.
 
 ```swift
 func commonInit() {
