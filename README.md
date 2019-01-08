@@ -10,7 +10,7 @@ This library was intended as a small component with simplicity in mind.  You do 
 
 ## How do I use it?
 
-By creating a Throttler instance, you can define a process via a closure, and customize the timing if desired.  After setting up, simply call `throttle()` on the Throttler instance, it's that easy!
+By creating a Throttler instance, you can define a process using a closure, and customize the timing if desired.  After setting up, simply call `throttle()` on the Throttler instance, it's that easy!
 
 ## Example
 
