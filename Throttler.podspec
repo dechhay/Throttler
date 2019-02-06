@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Throttler"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "A component you can use for regulating the rate of performing a process."
 
   # This description is used to generate tags and improve search results.
@@ -25,6 +25,13 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+                   Throttler is a component you can use for regulating the rate
+                   of performing a process.  Processes can easily be defined by
+                   using a closure.  Processes are dispatched asychronously to
+                   the provided queue.
+
+                   Throttler can also be customized to change its delay time and
+                   dipatch queue.
                    DESC
 
   s.homepage     = "https://github.com/dechhay/Throttler"
@@ -38,7 +45,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -75,7 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/Throttler.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/dechhay/Throttler.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -86,10 +93,13 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files = "Classes/**/*.{swift}"
-  s.exclude_files = "Classes/Exclude"
+  # s.source_files = "Classes/**/*.{swift}"
+  s.source_files = "Throttler/Code/*.swift"
+  # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
+
+  s.swift_version = '4.0'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
