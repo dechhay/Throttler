@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                    Throttler is a component you can use for regulating the rate
                    of performing a process.  Processes can easily be defined by
-                   using a closure.  Processes are dispatched asychronously to
-                   the provided queue.
+                   providing a closure.  Processes are dispatched asychronously
+                   to the provided queue.
 
                    Throttler can also be customized to change its delay time and
                    dipatch queue.
