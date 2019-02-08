@@ -9,14 +9,14 @@
 import Foundation
 
 @objc
-class Throttler: NSObject {
+public class Throttler: NSObject {
     
-    var delay: TimeInterval = 0.5
+    public var delay: TimeInterval = 0.5
     private var dispatchQueue: DispatchQueue = DispatchQueue.main
     private var dispatchBlock: (() -> Void) = {}
     private var dispatchWork: DispatchWorkItem?
     
-    convenience init(delay: TimeInterval = 0.5,
+    public convenience init(delay: TimeInterval = 0.5,
                      dispatchQueue: DispatchQueue = DispatchQueue.main,
                      dispatchBlock: @escaping () -> ()) {
         self.init()
@@ -33,7 +33,7 @@ extension Throttler {
     /**
      Schedules the dispatch to run asynchronously after the delay time.
      */
-    func throttle() {
+    public func throttle() {
         if let work = dispatchWork {
             work.cancel()
         }
@@ -46,7 +46,7 @@ extension Throttler {
     /**
      Triggers dispatch asynchronously.
      */
-    func fire() {
+    public func fire() {
         if let work = dispatchWork,
            !work.isCancelled {
                work.perform()
@@ -63,7 +63,7 @@ extension Throttler {
     /**
      Cancels any scheduled dispatch.
      */
-    func cancel() {
+    public func cancel() {
         guard let work = dispatchWork else {
             return
         }
