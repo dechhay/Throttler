@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Throttler"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "A component you can use for regulating the rate of performing a process."
   s.description  = <<-DESC
                    Throttler is a component you can use for regulating the rate
